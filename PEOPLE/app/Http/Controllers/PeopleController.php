@@ -30,9 +30,11 @@ class PeopleController extends Controller
             'people' => $people
         ], 200);
     }
-    public function show(People $people)
+    public function show($id)
     {
-        //
+        return response()->json(['status'=>true,
+            'people' => People::findOrFail($id)
+        ]);
     }
     public function edit(People $people)
     {
